@@ -1,8 +1,7 @@
 # 자바웹프로그래밍
-## Running the application in dev mode
+학번: 20231404 이름: 김보미
 
-You can run your application in dev mode that enables live coding using:
-
+### 1주차
 ```shell script
 ./mvnw quarkus:dev
 
