@@ -158,3 +158,37 @@
 #### 검색화면
 ![검색](resources/image/serch.png)
 ---
+
+## 📌 Week 9 - JavaScript 기능 확장 및 MySQL 데이터베이스 연동
+
+### 학습 내용
+- JavaScript 심화 개념 (객체 배열, 데이터 구조 이해)
+- 다크모드 / 라이트모드 구현 방식
+- MySQL 데이터베이스 개념 및 구조 (DB, Table, Row, Column)
+- Quarkus + ORM(Panache)을 활용한 DB 연동 방식
+- REST API 개념 (GET, POST 요청 처리)
+
+### 실습 내용
+- 다크모드 / 라이트모드 토글 기능 구현
+- 버튼 클릭 시 테마 변경 (CSS + JS)
+- MySQL 설치 및 환경 설정
+- lol 데이터베이스 생성 및 연결
+- application.properties에 DB 연결 설정 추가
+- Champion 엔티티 클래스 생성 (테이블 자동 생성)
+- ChampionResource API 구현 (데이터 조회/추가)
+- DataSeeder를 활용한 초기 데이터 자동 삽입
+- VS Code에서 MySQL 연결 후 테이블 및 데이터 확인
+- /champions API 호출 → JSON 데이터 확인
+
+### 문제 & 해결
+- MySQL 비밀번호 분실 → 초기화 후 재설치로 해결
+- MySQL 서버 실행 오류 → 설정 및 경로 문제 해결
+- DB 연결 실패 → application.properties 설정 수정으로 해결
+- 테이블 미생성 문제 → 서버 재시작으로 자동 생성 확인
+- 데이터 삽입 안됨 → DataSeeder 구조 수정으로 해결
+
+### 느낀 점 
+- 프론트엔드(JS)와 백엔드(Java + DB)가 연결되는 구조를 처음 이해하게 되었다.
+- 데이터를 저장하고 불러오는 흐름을 경험할 수 있었다.
+
+---

@@ -31,16 +31,41 @@
         </div>
     </nav> -->
 
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+    <!-- <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="image/logo.png" alt="logo" width="30" height="30" class="me-2">
+
+            <button type="button" 
+                class="btn border-0 text-light p-0 fw-bold"
+                id="themeToggleBtn"
+                onclick="toggleTheme()">
+            DARK
+            </button>
+        </a> -->
+        <div class="navbar-brand d-flex align-items-center">
+            <img src="../image/logo.png" alt="logo" width="30" height="30" class="me-2">
+
+            <button type="button" 
+                class="btn border-0 text-light p-0 fs-5"
+                id="themeToggleBtn"
+                onclick="toggleTheme()">
+            DARK
+            </button>
+        </div>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+            <!-- 과제2. 네비바 가운데 정렬 -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">뉴스</a>
+                    <a class="nav-link active" aria-current="page" href="#">메인화면</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">뉴스</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">챔피언</a>
@@ -64,14 +89,16 @@
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
         </ul>
-        <form class="d-flex" role="search">
+        <!-- <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+        <form class="d-flex" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="챔피언, 뉴스 검색..." aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success" type="submit">검색하기</button>
         </form>
+
     </div>
 </div>
 </nav>
