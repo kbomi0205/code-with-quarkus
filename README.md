@@ -151,10 +151,10 @@
 
 ### 작업물
 #### 메인 화면
-![메인1](image/main.png)
-![메인2](image/main2.png)
-![메인3](image/main3.png)
+![메인1](resources/image/main.png)
+![메인2](resources/image/main2.png)
+![메인3](resources/image/main3.png)
 
 #### 검색화면
-![검색](image/serch.png)
+![검색](resources/image/serch.png)
 ---
