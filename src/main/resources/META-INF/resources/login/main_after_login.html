@@ -6,7 +6,7 @@
     <title>League of Legends - 메인 페이지</title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
     <!-- 커스텀 스타일 (LOL 테마 + 챔피언 호버 효과) -->
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -44,7 +44,7 @@
             </button>
         </a> -->
         <div class="navbar-brand d-flex align-items-center">
-            <img src="image/logo.png" alt="logo" width="30" height="30" class="me-2">
+            <img src="../image/logo.png" alt="logo" width="30" height="30" class="me-2">
 
             <button type="button" 
                 class="btn border-0 text-light p-0 fs-5"
@@ -62,7 +62,7 @@
             <!-- 과제2. 네비바 가운데 정렬 -->
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">메인화면</a>
+                    <a class="nav-link active" aria-current="page" href="#">메인화면</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">뉴스</a>
@@ -72,11 +72,14 @@
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/main_page_sub/download.html">다운로드</a>
+                    <a class="nav-link" href="main_page_sub/download.html">다운로드</a>
                 </li>
                 </li>
+                <!-- 기존 로그인 버튼 제거, 로그아웃 버튼 추가 -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">로그인</a>
+                    <a class="nav-link btn btn-outline-danger btn-sm px-3"
+                    href="/logout">로그아웃</a>
+                </li>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -120,7 +123,7 @@
         <div class="row g-4">
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/a1.jpg" class="card-img-top" alt="아트록스">
+                <img src="../image/a1.jpg" class="card-img-top" alt="아트록스">
                 <div class="card-body">
                 <h5 class="card-title">아트록스 (Aatrox)</h5>
                 <p class="card-text small">역할: 전사 / 난이도: 상</p>
@@ -150,7 +153,7 @@
             <!--바디: iframe으로내용채움-->
             <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                 <iframe
-                src="../modals/Aatrox.html"
+                src="..\modals\Aatrox.html"
                 frameborder="0"
                 style="width: 100%; height: 100%; border: none;"
                 allowfullscreen>
@@ -168,7 +171,7 @@
             <!-- Sylas -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/sylas.jpg" class="card-img-top" alt="사일러스">
+                <img src="../image/sylas.jpg" class="card-img-top" alt="사일러스">
                 <div class="card-body">
                 <h5 class="card-title">사일러스 (Sylas)</h5>
                 <p class="card-text small">역할: 마법사 / 난이도: 중</p>
@@ -198,7 +201,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                     <iframe
-                    src="../modals/Sylas.html"
+                    src="..\modals\Sylas.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -217,7 +220,7 @@
             <!-- Anivia -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/anivia.jpg" class="card-img-top" alt="애니비아">
+                <img src="../image/anivia.jpg" class="card-img-top" alt="애니비아">
                 <div class="card-body">
                 <h5 class="card-title">애니비아 (Anivia)</h5>
                 <p class="card-text small">역할: 마법사 / 난이도: 상</p>
@@ -247,7 +250,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                     <iframe
-                    src="../modals/Anivia.html"
+                    src="..\modals\Anivia.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -266,7 +269,7 @@
             <!-- Briar -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/briar.jpg" class="card-img-top" alt="브라이어">
+                <img src="../image/briar.jpg" class="card-img-top" alt="브라이어">
                 <div class="card-body">
                 <h5 class="card-title">브라이어 (Briar)</h5>
                 <p class="card-text small">역할: 전사 / 난이도: 하</p>
@@ -296,7 +299,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                     <iframe
-                    src="../modals/Briar.html"
+                    src="..\modals\Briar.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -315,7 +318,7 @@
             <!-- Jax -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/jax.jpg" class="card-img-top" alt="잭스">
+                <img src="../image/jax.jpg" class="card-img-top" alt="잭스">
                 <div class="card-body">
                 <h5 class="card-title">잭스 (Jax)</h5>
                 <p class="card-text small">역할: 전사 / 난이도: 중</p>
@@ -345,7 +348,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                     <iframe
-                    src="../modals/Jax.html"
+                    src="..\modals\Jax.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -363,7 +366,7 @@
             <!-- Jinx -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/jinx.jpg" class="card-img-top" alt="징크스">
+                <img src="../image/jinx.jpg" class="card-img-top" alt="징크스">
                 <div class="card-body">
                 <h5 class="card-title">징크스 (Jinx)</h5>
                 <p class="card-text small">역할: 원거리 딜러 / 난이도: 중</p>
@@ -393,7 +396,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                 <iframe
-                    src="../modals/Jinx.html"
+                    src="..\modals\Jinx.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -412,7 +415,7 @@
             <!-- Mel -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/mel.jpg" class="card-img-top" alt="멜">
+                <img src="../image/mel.jpg" class="card-img-top" alt="멜">
                 <div class="card-body">
                 <h5 class="card-title">멜 (Mel)</h5>
                 <p class="card-text small">역할: 마법사 / 난이도: 중</p>
@@ -442,7 +445,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                     <iframe
-                    src="../modals/Mel.html"
+                    src="..\modals\Mel.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -460,7 +463,7 @@
             <!-- Yunara -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/yunara.jpg" class="card-img-top" alt="유나라">
+                <img src="../image/yunara.jpg" class="card-img-top" alt="유나라">
                 <div class="card-body">
                 <h5 class="card-title">유나라 (Yunara)</h5>
                 <p class="card-text small">역할: 원거리 딜러 / 난이도: 중</p>
@@ -490,7 +493,7 @@
                 <!-- 바디 -->
                 <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                     <iframe
-                    src="../modals/Yunara.html"
+                    src="..\modals\Yunara.html"
                     frameborder="0"
                     style="width: 100%; height: 100%; border: none;"
                     allowfullscreen>
@@ -508,7 +511,7 @@
             <!-- jahen -->
             <div class="col">
             <div class="card bg-dark text-white border-secondary h-100">
-                <img src="image/jahen.jpg" class="card-img-top" alt="자헨">
+                <img src="../image/jahen.jpg" class="card-img-top" alt="자헨">
                 <div class="card-body">
                 <h5 class="card-title">자헨 (Jahen)</h5>
                 <p class="card-text small">역할: 전사 / 난이도: 상</p>
@@ -538,7 +541,7 @@
             <!-- 바디 -->
             <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
                 <iframe
-                src="../modals/Jahen.html"
+                src="..\modals\Jahen.html"
                 frameborder="0"
                 style="width: 100%; height: 100%; border: none;"
                 allowfullscreen>
