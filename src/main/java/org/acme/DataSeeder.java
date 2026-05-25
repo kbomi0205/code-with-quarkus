@@ -31,7 +31,7 @@ public class DataSeeder {
         if (User.count() == 0) {
             User guest = new User();
             guest.username = "guest";
-            guest.password = "123123";
+            guest.password = "73C97C725A23D64834A9CF6A2A153C8ABCEDFA8E4996E44D8A1C8F3361B5E1C0";
             guest.persist();
         }
     }

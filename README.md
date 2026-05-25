@@ -327,4 +327,34 @@
 ### 💭 느낀 점
  
 > 파일명 오타 하나로 한참 디버깅한 경험을 통해 정확한 네이밍이 얼마나 중요한지 느꼈다.
+
+---
+
+## 📌 Week 12 - 로그인 암호화 & 세션 체크
  
+### 🛠️ 이번 주 한 것들
+ 
+**1. 로그인 암호화 구현**
+- `login.html`에 hidden input과 `input_sha256.js`를 연동해 패스워드를 SHA-256 해시로 변환 후 서버에 전송하도록 구현했습니다.
+- `login.js`에 `validateAndLogin()` 함수를 작성해 아이디, 패스워드 유효성 검사를 구현했습니다.
+- `DataSeeder.java`의 guest 계정 패스워드를 SHA-256 해시값으로 교체했습니다.
+- MySQL에서 `LOWER()` 쿼리로 DB에 저장된 패스워드를 소문자로 통일했습니다.
+**2. 메인화면 세션 체크 구현**
+- `index.html`을 `main_index.html`로 파일명을 변경했습니다.
+- `AuthResource.java`에 `@GET @Path("/")` 엔드포인트를 추가해 세션 유무에 따라 로그인 전/후 메인화면을 분기 처리했습니다.
+ 
+### ❗ 발생한 오류 & 해결 과정
+ 
+**1. 로그인 유효성 검사 체크 표시가 뜨지 않음**
+- 원인: `login.html`에 `input_check.js` 연결이 누락되어 `showError`, `clearError` 함수를 찾지 못함
+- 해결: `<script src="../js/input_check.js">` 추가 후 해결
+**2. guest 계정으로 로그인 실패**
+- 원인: DB에 패스워드가 평문(`123123`)으로 저장되어 있어 해시값과 비교 불가
+- 해결: `DELETE FROM users;` 로 기존 데이터 삭제 후 서버 재시작, 해시값으로 재생성
+**3. 대소문자 불일치로 로그인 실패**
+- 원인: 온라인 해시 생성 사이트는 대문자, 브라우저 `crypto.subtle`은 소문자로 해시를 생성해 불일치 발생
+- 해결: MySQL에서 `UPDATE users SET password = LOWER(password) WHERE username = 'guest';` 실행
+
+### 💭 느낀 점
+ 
+> 같은 문자열이라도 대문자/소문자 차이 하나로 로그인이 안 되는 경험을 통해 암호화 비교에서 일관성이 얼마나 중요한지 느꼈다
