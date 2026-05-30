@@ -1,11 +1,22 @@
-body { 
-    background-color: #0a0e17; 
-    color: #e0e0e0; 
-    font-family: 'Segoe UI', Arial, sans-serif; 
+/* ================================================================
+   download.css
+   다운로드 페이지 전용 스타일 (download.html에서 사용)
+   LOL 골드 톤 + 보라색 테마
+   ================================================================ */
+
+
+/* ===== 기본 레이아웃 ===== */
+body {
+    background-color: #0a0e17;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+
+/* ===== 히어로 배너 ===== */
+/* 배경 이미지 위에 어두운 그라데이션 오버레이 적용 */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
                 url('../image/download-banner.jpg') center/cover no-repeat;
     min-height: 60vh;
     display: flex;
@@ -15,51 +26,57 @@ body {
     padding: 2rem;
 }
 
-.hero h1 { 
-    font-size: 4rem; 
-    font-weight: bold; 
-    color: #c8aa6e;          /* LOL 골드 톤 */
-    text-shadow: 0 0 10px #a020f0;
+/* 히어로 제목: LOL 골드 톤 + 보라색 발광 효과 */
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #c8aa6e;                 /* LOL 골드 톤 */
+    text-shadow: 0 0 10px #a020f0;  /* 보라색 발광 효과 */
 }
 
-.btn-download {
-    background-color: #a020f0;
-    border: none;
-    font-size: 1.3rem;
-    padding: 1rem 2rem;
-    margin: 1rem;
-}
 
-.btn-download:hover { 
-    background-color: #800080; 
-}
+/* ===== 다운로드 버튼 ===== */
+.btn-download       { background-color: #a020f0; border: none; font-size: 1.3rem; padding: 1rem 2rem; margin: 1rem; }
+.btn-download:hover { background-color: #800080; }
 
-.nav-tabs .nav-link { 
-    color: #e0e0e0; 
-}
 
-.nav-tabs .nav-link.active { 
-    background-color: #1e1e1e; 
-    color: #c8aa6e; 
-    border-color: #a020f0; 
-}
+/* ===== 시스템 사양 탭 (Windows / Mac) ===== */
+.nav-tabs .nav-link        { color: #e0e0e0; }
+/* 선택된 탭: 골드 텍스트 + 보라색 테두리 */
+.nav-tabs .nav-link.active { background-color: #1e1e1e; color: #c8aa6e; border-color: #a020f0; }
 
-.table { 
-    --bs-table-bg: #1e1e1e; 
-    --bs-table-color: #e0e0e0; 
-    --bs-table-border-color: #444;
-}
 
-.table th { 
-    background-color: #000; 
-    color: #c8aa6e; 
-}
+/* ===== 시스템 사양 테이블 ===== */
+.table    { --bs-table-bg: #1e1e1e; --bs-table-color: #e0e0e0; --bs-table-border-color: #444; }
+/* 테이블 헤더: 검정 배경 + 골드 텍스트 */
+.table th { background-color: #000; color: #c8aa6e; }
 
-.card { 
-    background-color: #1e1e1e; 
-    border: 1px solid #444; 
-}
 
-.accent-purple { 
-    color: #a020f0; 
-}
+/* ===== 카드 ===== */
+.card { background-color: #1e1e1e; border: 1px solid #444; }
+
+
+/* ===== 강조 색상 ===== */
+.accent-purple { color: #a020f0; }
+
+
+/* ===== 다크/라이트 모드 토글 버튼 ===== */
+#themeToggleBtn               { font-size: 1.1rem; color: #fff; }
+body.light-mode #themeToggleBtn { color: #212529; }  /* 라이트 모드일 때 버튼 글자색 변경 */
+
+
+/* ===== 라이트 모드 스타일 ===== */
+/* body에 light-mode 클래스가 추가될 때 적용 */
+body.light-mode             { background-color: #f8f9fa; color: #212529; }
+body.light-mode .navbar     { background-color: #e9ecef !important; }
+/* 라이트 모드 네비바 텍스트 색상 */
+body.light-mode .navbar .navbar-brand,
+body.light-mode .navbar .nav-link { color: #212529 !important; }
+/* 라이트 모드 테이블 */
+body.light-mode .table      { --bs-table-bg: #ffffff; --bs-table-color: #212529; }
+body.light-mode .table th   { background-color: #e9ecef; color: #212529; }
+/* 라이트 모드 탭 */
+body.light-mode .nav-tabs .nav-link        { color: #212529; }
+body.light-mode .nav-tabs .nav-link.active { background-color: #ffffff; color: #a020f0; border-color: #a020f0; }
+/* 라이트 모드 카드 */
+body.light-mode .card       { background-color: #ffffff; border: 1px solid #dee2e6; color: #212529; }

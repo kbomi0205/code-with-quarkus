@@ -395,3 +395,16 @@
 > JS 파일 하나가 여러 페이지에서 공유될 때 null 체크의 중요성을 느꼈다. 또한 Bootstrap JS 로드 순서 하나로 기능 전체가 동작하지 않는 경험을 통해 script 태그 순서와 의존성 관리가 얼마나 중요한지 깨달았다.
 
 ---
+> 8주차 이후에 작성되어있는 과제 수행함. 추가로 코드를 하나하나 다시 공부하며 주석을 달며 공부했음
+1. Week 9 과제 수행 내역
+- **챔피언 검색 결과 모달창 연결** : `search.js`의 CHAMPIONS 배열에 `modalId` 속성을 추가하고, 검색 결과 카드 클릭 시 해당 챔피언 상세 모달이 열리도록 구현했습니다.
+- **다크/라이트 토글 방식 변경** : 기존 `onclick="toggleTheme()"` 인라인 방식을 `addEventListener` 이벤트 리스너 방식으로 변경했습니다. 전체 HTML 파일에서 `onclick` 제거 후 `toggle.js`에서 `DOMContentLoaded` 이벤트로 버튼에 클릭 이벤트를 등록했습니다.
+
+2.  Week 10 과제 수행 내역
+- **다운로드 페이지 다크/라이트 모드 적용** : `download.html`에 `toggle.js`를 연동하고, `download.css`에 라이트 모드 스타일을 추가해 다운로드 페이지에서도 테마 전환이 동작하도록 구현했습니다.
+
+3.  Week 11 과제 수행 내역
+- **로그인 유효성 검사 구현** : `login.js`에 `validateAndLogin()` 함수를 작성해 아이디(4~20자 영문/숫자), 패스워드(8자 이상, 영문+숫자+특수문자) 정규식 검사를 구현했습니다.
+
+4. Week 12 과제 수행 내역
+- **프로필 사진 업로드 에러 메시지 처리** : `profile.html` 업로드 폼 위에 `id="uploadErrorMsg"` div를 추가하고, `profile.js`에서 URL 파라미터(`invalid_type`, `too_large`, `upload_fail`)에 따라 에러 메시지를 표시하도록 구현했습니다.
