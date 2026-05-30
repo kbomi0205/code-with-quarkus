@@ -358,3 +358,40 @@
 ### 💭 느낀 점
  
 > 같은 문자열이라도 대문자/소문자 차이 하나로 로그인이 안 되는 경험을 통해 암호화 비교에서 일관성이 얼마나 중요한지 느꼈다
+
+---
+## 📌 Week 13 - 프로필 페이지 구현 & 프론트 수정
+
+### 🛠️ 이번 주 한 것들
+
+**1. 프로필 페이지 구현**
+- `profile.html`을 작성해 내 프로필 페이지 UI를 구현했습니다.
+- `User.java`에 `profileImage` 컬럼을 추가해 DB에 프로필 사진 파일명을 저장하도록 했습니다.
+- `AuthResource.java`에 `/profile`, `/profile/info`, `/profile/upload` 엔드포인트를 추가했습니다.
+- `profile.js`를 작성해 `/profile/info` API로 사용자 정보를 비동기로 불러와 화면에 출력했습니다.
+- 프로필 사진 업로드 기능을 구현했습니다. (jpg, png, gif, webp / 최대 5MB, UUID 파일명으로 저장)
+
+**2. 프론트 수정**
+- 기존 `alert()`를 Bootstrap5 기반 Toast 알림으로 교체했습니다.
+- `test.js`에 `showToast()` 함수를 작성해 전체 페이지에서 재사용할 수 있도록 했습니다.
+- 네비바 프로필 버튼에 마우스를 올리면 로그인한 사용자명이 툴팁으로 표시되도록 구현했습니다.
+
+### ❗ 발생한 오류 & 해결 과정
+
+**1. 툴팁이 뜨지 않음**
+- 원인: `main_after_login.html`에 Bootstrap JS가 주석처리 되어 있어 `bootstrap is not defined` 에러 발생
+- 해결: Bootstrap CDN script 태그 주석 해제 후 정상 동작 확인
+
+**2. `profile.js`에서 null 에러 발생**
+- 원인: `profile.js`가 `main_after_login.html`에도 로드되는데, 해당 페이지에는 `infoUsername` 등의 요소가 없어 null 에러로 툴팁 코드까지 실행이 안 됨
+- 해결: 각 요소에 null 체크(`if (요소)`) 추가 후 해결
+
+**3. fetch 두 번 호출 문제**
+- 원인: `window.onload` 안팎에 `fetch('/profile/info')`가 중복으로 작성되어 있었음
+- 해결: 하나의 `window.onload` 안으로 합쳐서 정리
+
+### 💭 느낀 점
+
+> JS 파일 하나가 여러 페이지에서 공유될 때 null 체크의 중요성을 느꼈다. 또한 Bootstrap JS 로드 순서 하나로 기능 전체가 동작하지 않는 경험을 통해 script 태그 순서와 의존성 관리가 얼마나 중요한지 깨달았다.
+
+---

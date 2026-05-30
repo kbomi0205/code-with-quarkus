@@ -1,20 +1,3 @@
-// package org.acme.login;
-// import io.quarkus.hibernate.orm.panache.PanacheEntity;
-// import jakarta.persistence.Entity;
-// import jakarta.persistence.Table;
-
-// @Entity
-// @Table(name = "users") // 예약어 충돌 방지: "user" → "users"
-// public class User extends PanacheEntity {
-//     public String username;
-//     public String password;
-    
-//     // 사용자명으로 조회하는 정적 메서드
-//     public static User findByUsername(String username) {
-//         return find("username", username).firstResult();
-//     }
-// }
-
 package org.acme.login;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
@@ -27,18 +10,22 @@ import jakarta.persistence.Column;
 public class User extends PanacheEntity {
     
     public String username;
-    public String password; // SHA-256 해시값 저장
+    public String password;
     
-    @Column(unique = true) // 이메일 중복 방지
+    @Column(unique = true)
     public String email;
-        public String phone; // 연락처
+    
+    public String phone;
+    
+    // 신규 추가 : 프로필 사진 파일명
+    public String profileImage;
 
-        // 아이디로 조회
-        public static User findByUsername(String username) {
+    public static User findByUsername(String username) {
         return find("username", username).firstResult();
-        }
-        // 이메일로 조회
-        public static User findByEmail(String email) {
+    }
+    
+    public static User findByEmail(String email) {
         return find("email", email).firstResult();
-        }
+    }
 }
+
