@@ -78,5 +78,24 @@
         </div>
     </section>
 
+    <!-- ===== Toast 알림 컨테이너 (화면 우측 하단 고정) ===== -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+        <div id="liveToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+            <div class="d-flex">
+                <div class="toast-body" id="toastBody">메시지</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== JS 파일 로드 ===== -->
+    <script src="../js/test.js"></script>     <!-- Toast 함수 -->
+    <script>
+        // 회원가입 완료 시 Toast 알림 표시
+        window.onload = function() {
+            showToast('회원가입이 완료되었습니다!');
+        }
+    </script>
+    
 </body>
 </html>

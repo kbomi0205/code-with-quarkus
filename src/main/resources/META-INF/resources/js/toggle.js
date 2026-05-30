@@ -19,12 +19,12 @@ function toggleTheme() {
 
     if (body.classList.contains('light-mode')) {
         // 라이트 모드로 전환
-        btn.textContent = 'LIGHT';
+        btn.textContent = '☀️LIGHT';
         navbar.classList.remove('navbar-dark', 'bg-dark');  // 다크 클래스 제거
         navbar.classList.add('navbar-light', 'bg-light');   // 라이트 클래스 추가
     } else {
         // 다크 모드로 전환
-        btn.textContent = 'DARK';
+        btn.textContent = '🌙DARK';
         navbar.classList.remove('navbar-light', 'bg-light'); // 라이트 클래스 제거
         navbar.classList.add('navbar-dark', 'bg-dark');      // 다크 클래스 추가
     }

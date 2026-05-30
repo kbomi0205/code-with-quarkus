@@ -92,10 +92,11 @@ public class AuthResource {
 
 
     // ===== 로그아웃 처리 =====
-    // GET /logout → 세션 삭제 후 메인 페이지로 이동
+    // GET /logout → 세션 삭제 후 next 파라미터에 따라 이동
+    // ?next=login 이면 로그인 페이지로, 없으면 메인 페이지로 이동
     @GET
     @Path("/logout")
-    public Response logout() {
+    public Response logout(@QueryParam("next") String next) {
         System.out.println("=== 로그아웃 전 세션 ID : " + context.session().id());
         System.out.println("=== 로그아웃 전 loginUser : " + context.session().get("loginUser"));
 
@@ -104,8 +105,10 @@ public class AuthResource {
         System.out.println("=== 로그아웃 후 세션 ID : " + context.session().id());
         System.out.println("=== 로그아웃 후 loginUser : " + context.session().get("loginUser"));
 
+        // next=login 이면 /login으로, 아니면 / (메인)으로 이동
+        String redirect = (next != null && next.equals("login")) ? "/login" : "/";
         return Response
-            .seeOther(URI.create("/"))
+            .seeOther(URI.create(redirect))
             .build();
     }
 
@@ -317,5 +320,74 @@ public class AuthResource {
                 .seeOther(URI.create("/profile?error=upload_fail"))
                 .build();
         }
+    }
+
+    // ===== 회원정보 수정 처리 =====
+    // POST /profile/update → 이메일 / 연락처 수정 후 프로필 페이지로 이동
+    @POST
+    @Path("/profile/update")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response profileUpdate(
+        @FormParam("email") String email,
+        @FormParam("phone") String phone) {
+
+        // ① 세션 체크 (미로그인 시 로그인 페이지로 차단)
+        String loginUser = context.session().get("loginUser");
+        if (loginUser == null) {
+            return Response
+                .seeOther(URI.create("/login"))
+                .build();
+        }
+
+        // ② 이메일 중복 체크 (본인 이메일은 제외)
+        User found = User.findByEmail(email);
+        if (found != null && !found.username.equals(loginUser)) {
+            return Response
+                .seeOther(URI.create("/profile?error=duplicate_email"))
+                .build();
+        }
+
+        // ③ DB 업데이트
+        User user = User.findByUsername(loginUser);
+        user.email = email;
+        user.phone = phone;
+
+        return Response
+            .seeOther(URI.create("/profile?success=updated"))
+            .build();
+    }
+    // ===== 비밀번호 변경 처리 =====
+    // POST /profile/password → 현재 PW 확인 후 새 PW로 DB 업데이트
+    @POST
+    @Path("/profile/password")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response profilePassword(
+        @FormParam("currentPassword") String currentPassword,
+        @FormParam("newPassword")     String newPassword) {
+
+        // ① 세션 체크
+        String loginUser = context.session().get("loginUser");
+        if (loginUser == null) {
+            return Response
+                .seeOther(URI.create("/login"))
+                .build();
+        }
+
+        // ② 현재 비밀번호 확인 (해시값 비교)
+        User user = User.findByUsername(loginUser);
+        if (!user.password.equals(currentPassword)) {
+            return Response
+                .seeOther(URI.create("/profile?error=wrong_password"))
+                .build();
+        }
+
+        // ③ 새 비밀번호로 DB 업데이트
+        user.password = newPassword;
+
+        return Response
+            .seeOther(URI.create("/profile?success=password_changed"))
+            .build();
     }
 }
